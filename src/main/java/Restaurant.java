@@ -18,6 +18,7 @@ public class Restaurant {
     }
 
     public boolean isRestaurantOpen() {
+
         if(getCurrentTime().isAfter(openingTime)  && getCurrentTime().isBefore(closingTime)){
             return true;
         }
@@ -30,7 +31,7 @@ public class Restaurant {
 
     public List<Item> getMenu()
     {
-        return menu;
+         return menu;
     }
 
     private Item findItemByName(String itemName){

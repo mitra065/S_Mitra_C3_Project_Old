@@ -55,29 +55,17 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
 
-    public void displayDetails(){
-        System.out.println("Restaurant:"+ name + "\n"
-                +"Location:"+ location + "\n"
-                +"Opening time:"+ openingTime +"\n"
-                +"Closing time:"+ closingTime +"\n"
-                +"Menu:"+"\n"+getMenu());
-
-    }
-
-    public String returnDetails(){
-        return ("Restaurant:"+ name + "\n"
-                +"Location:"+ location + "\n"
-                +"Opening time:"+ openingTime +"\n"
-                +"Closing time:"+ closingTime +"\n"
-                +"Menu:"+"\n"+getMenu());
-
-    }
     public String getName() {
         return name;
     }
 
     public int getCostForSelectedItems(List<String> items){
-        return 0;
+        int totalCost = 0;
+        for (String itemName : items) {
+            Item item = findItemByName(itemName);
+            totalCost+=item.getPrice();
+        }
+        return totalCost;
     }
 
 }
